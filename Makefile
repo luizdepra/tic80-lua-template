@@ -20,6 +20,3 @@ build:
 
 run:
 	$(TIC80) --fs . --cmd="load main.lua"
-
-test:
-	echo "$(SOURCES)"
