@@ -5,12 +5,28 @@
 
 package.path = package.path .. ";src/?.lua"
 
-require "libs/example"
-require "engine"
+local SceneManager = require("scenes.scene_manager")
+local IntroScene = require("scenes.intro")
+local GameScene = require("scenes.game")
+
+-- Global Game Table
+G = {
+	SM = {}
+}
+
+function BOOT()
+	local intro = IntroScene:new {}
+	local game = GameScene:new {}
+
+	G.SM = SceneManager:new {}
+	G.SM:add("intro", intro)
+	G.SM:add("game", game)
+	G.SM:switch("intro")
+end
 
 function TIC()
-	local radius = example()
-	draw(radius)
+	G.SM:update()
+	G.SM:draw()
 end
 
 -- <TILES>
