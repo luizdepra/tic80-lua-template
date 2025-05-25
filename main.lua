@@ -3,7 +3,7 @@
 -- desc:   short description
 -- script: lua
 
-package.path = package.path .. ";src/?.lua"
+package.path = package.path .. ";./src/?.lua"
 
 local SceneManager = require("scenes.scene_manager")
 local IntroScene = require("scenes.intro")
